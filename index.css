@@ -5,11 +5,16 @@ html {
 }
 
 body {
-  background: black;
+  background: #7D7D7D;
+}
+
+h1 {
+  color: #FFF;
+  text-align: center;
 }
 
 p {
-  color: rgba(114, 123, 141, 0.6);
+  color: #CECECE;
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 4px;
@@ -19,22 +24,22 @@ p {
 
 #box {
   color: #FFF;
-  font-size: 3.4em;
+  font-size: 3em;
   height: 100%;
   letter-spacing: -0.045em;
   margin: 4% auto;
   text-align: center;
-  text-shadow: 0 2px 8px rgba(158, 143, 32, 0.77), 0 2px 0 rgba(151, 136, 47, 0.24);
   transition: all 0.2s ease;
 }
 
 .map-selection {
   text-align: center;
+  font-size: 1.5em;
 }
 
 .city-box {
   display: block;
-  margin: 20px 0;
+  padding: 20px 0;
 }
 
 .city-name {

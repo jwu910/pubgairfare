@@ -1,16 +1,8 @@
-// https://codepen.io/phvc/pen/RxLyGv
-let island;
-let cities;
-let next;
-
 const ERENGEL_CITIES = [
-  // Major Cities
   'Georgopol',
   'Mylta',
   'Pochinki',
   'Yasnaya Polyana',
-
-  // Minor Cities
   'Gatka',
   'Kameshki',
   'Lipovka',
@@ -21,15 +13,12 @@ const ERENGEL_CITIES = [
   'Severny',
   'Stalber',
   'Zharki',
-
-  // Major Landmarks
   'Stalber',
   'Sosnovka Island',
   'Sosnovka Military Base',
 ];
 
 const MIRAMAR_CITIES = [
-  // Major Cities
   'Los Leones',
   'El Pozo',
   'Monte Nuevo',
@@ -37,24 +26,24 @@ const MIRAMAR_CITIES = [
   'La Cobreria',
   'San Martin',
   'Chumacera',
-
-  // Minor Cities
   'Pecado',
-
-  // Major Landmarks
-  'Hacienda del Patrón'
+  'Hacienda del Patrón',
+  'Los Leones',
+  'El Pozo',
+  'Monte Nuevo',
+  'Valle del Mar',
+  'La Cobreria',
+  'San Martin',
+  'Chumacera',
+  'Pecado',
+  'Hacienda del Patrón',
 ];
-// Need to set cities array based on radio button activity.
-
 
 $(document).ready(() =>{
-  let mapSelection = document.querySelector('#mapSelection');
-  let cityName = document.querySelector('.city-name');
-
-  cities = ERENGEL_CITIES;
+  let next;
+  let cities = ERENGEL_CITIES;
   let allCities = cities.length;
   let firstCity = 0;
-  city = $('.city-name');
 
   $('.map-selection').on('change', () => {
     if (document.getElementById('M1').checked) {
@@ -66,13 +55,13 @@ $(document).ready(() =>{
     }
   })
 
-  function changeCity() {
-    city.html(cities[firstCity]);
+  const changeCity = () => {
+    $('.city-name').html(cities[firstCity]);
     firstCity = (firstCity + 1) % allCities;
   }
 
-  function change() {
-    next = setInterval(changeCity, 100);//must match css animation
+  const change = () => {
+    next = setInterval(changeCity, 120);
   };
 
   $('.city-box').hover(() => {
