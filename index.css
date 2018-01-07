@@ -1,0 +1,81 @@
+html {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+}
+
+body {
+  background: black;
+}
+
+p {
+  color: rgba(114, 123, 141, 0.6);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin: 20px 0 0;
+  text-align: center;
+}
+
+#box {
+  color: #FFF;
+  font-size: 3.4em;
+  height: 100%;
+  letter-spacing: -0.045em;
+  margin: 4% auto;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(158, 143, 32, 0.77), 0 2px 0 rgba(151, 136, 47, 0.24);
+  transition: all 0.2s ease;
+}
+
+.map-selection {
+  text-align: center;
+}
+
+.city-box {
+  display: block;
+  margin: 20px 0;
+}
+
+.city-name {
+  cursor: pointer;
+  display: inline-block;
+  opacity: 1;
+  padding: 5px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.city-box:hover {
+  animation: mov 0.12s infinite;
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 4px 4px rgba(255, 255, 255, 0.2), 0 6px 6px rgba(255, 255, 255, 0.4), 0 8px 18px rgba(255, 255, 255, 0.8), 0 22px 18px rgba(255, 255, 255, 0.5), 0 -4px 4px rgba(255, 255, 255, 0.2), 0 -6px 6px rgba(255, 255, 255, 0.4), 0 -8px 18px rgba(255, 255, 255, 0.8), 0 -22px 18px rgba(255, 255, 255, 0.5);
+  top: 12px;
+}
+
+@keyframes in {
+  0% {
+    transform: translatey(-30px);
+  }
+  50% {
+    transform: translatey(-15px);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+
+@keyframes mov {
+  0% {
+    opacity: 0;
+    transform: translatey(-30px);
+  }
+  50% {
+    opacity: 1;
+    transform: translatey(-15px);
+  }
+  100% {
+    opacity: 0;
+    transform: translatey(25px);
+  }
+}

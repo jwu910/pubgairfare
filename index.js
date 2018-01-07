@@ -1,4 +1,7 @@
 // https://codepen.io/phvc/pen/RxLyGv
+let island;
+let cities;
+let next;
 
 const ERENGEL_CITIES = [
   // Major Cities
@@ -39,30 +42,42 @@ const MIRAMAR_CITIES = [
   'Pecado',
 
   // Major Landmarks
-  'Hacienda del Patrón',
+  'Hacienda del Patrón'
 ];
+// Need to set cities array based on radio button activity.
 
-const populateWheel = () => {
-  const wheel = document.querySelector('.wheel');
-  const ul = document.createElement('ul');
 
-  ERENGEL_CITIES.forEach(city => {
-    let li = document.createElement('li');
-    li.innerText = city;
-    ul.appendChild(li);
+$(document).ready(() =>{
+  let mapSelection = document.querySelector('#mapSelection');
+  let cityName = document.querySelector('.city-name');
+
+  cities = ERENGEL_CITIES;
+  let allCities = cities.length;
+  let firstCity = 0;
+  city = $('.city-name');
+
+  $('.map-selection').on('change', () => {
+    if (document.getElementById('M1').checked) {
+      cities = ERENGEL_CITIES;
+      changeCity();
+    } else if (document.getElementById('M2').checked) {
+      cities = MIRAMAR_CITIES;
+      changeCity();
+    }
+  })
+
+  function changeCity() {
+    city.html(cities[firstCity]);
+    firstCity = (firstCity + 1) % allCities;
+  }
+
+  function change() {
+    next = setInterval(changeCity, 100);//must match css animation
+  };
+
+  $('.city-box').hover(() => {
+    change();
+  }, () => {
+    clearInterval(next);
   });
-
-  wheel.appendChild(ul);
-};
-
-const populateSpinButton = () => {
-  const button = document.querySelector('.spin-wheel');
-
-  button.onclick = event => {
-    event.preventDefault();
-    event.stopPropagation();
-  }; // spins the wheel
-};
-
-populateWheel();
-populateSpinButton();
+});

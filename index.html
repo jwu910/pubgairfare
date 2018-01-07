@@ -7,22 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Where the fuck should I drop?</title>
   <link rel="stylesheet" href="index.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="map-selection">
-      <form>
-        <input type="radio" name="map" id="Erengel" value="Erengel">
-        <label for="Erengel">Erengel</label>
-        <input type="radio" name="map" id="Miramar" value="Miramar">
-        <label for="Miramar">Miramar</label>
-        <button class="spin-wheel">GG</button>
-      </form>
-    </div>
-    <div class="wheel">
+  
+  <p>HOVER OVER THE CITY TO CHANGE IT</p>
+  <div id="box">
+    Drop here: <br/>
+    <div class="city-box">
+      <span class="city-name">Hover Here</span>
     </div>
   </div>
+
+  <div class="container">
+    <div class="map-selection">
+      <!-- <form id="mapSelection"> -->
+        <input
+          class="mapRadio"
+          checked="checked"
+          id="M1"
+          name="map"
+          type="radio"
+          value="Erfengel"
+        >
+        <label for="Erengel">Erengel</label>
+        <input
+          class="mapRadio"
+          id="M2"
+          name="map"
+          type="radio"
+          value="Miramar"
+        >
+        <label for="Miramar">Miramar</label>
+      <!-- </form> -->
+    </div>
+  </div>
+
   <script src="index.js"></script>
 </body>
 
