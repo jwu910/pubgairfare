@@ -39,13 +39,14 @@ const MIRAMAR_CITIES = [
   'Hacienda del Patrón',
 ];
 
-$(document).ready(() =>{
+const init = () => {
   let next;
   let cities = ERENGEL_CITIES;
   let allCities = cities.length;
   let firstCity = 0;
 
-  $('.map-selection').on('change', () => {
+  const mapSelection = document.querySelector('.map-selection');
+  mapSelection.onchange = () => {
     if (document.getElementById('M1').checked) {
       cities = ERENGEL_CITIES;
       changeCity();
@@ -53,20 +54,22 @@ $(document).ready(() =>{
       cities = MIRAMAR_CITIES;
       changeCity();
     }
-  })
+  };
 
   const changeCity = () => {
-    $('.city-name').html(cities[firstCity]);
+    const cityName = document.querySelector('.city-name');
+
+    cityName.innerHTML = cities[firstCity];
     firstCity = (firstCity + 1) % allCities;
-  }
+  };
 
   const change = () => {
     next = setInterval(changeCity, 120);
   };
 
-  $('.city-box').hover(() => {
-    change();
-  }, () => {
-    clearInterval(next);
-  });
-});
+  const cityBox = document.querySelector('.city-box');
+  cityBox.onmouseover = change;
+  cityBox.onmouseout = () => clearInterval(next);
+};
+
+window.addEventListener('DOMContentLoaded', init);
