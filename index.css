@@ -11,7 +11,13 @@ html {
 }
 
 body {
-  background: #7d7d7d;
+	margin: 10%;
+	background: #242628;
+}
+
+footer {
+	margin: 10% 20%;
+	text-alighn: center;
 }
 
 h1 {
@@ -42,6 +48,17 @@ p {
   text-align: center;
   font-size: 1.5em;
 }
+
+.selection {
+  background-color: #E18000;
+  border-radius: 10px;
+  border: none;
+  display: inline;
+  font-size: 1.2rem;
+  margin: 10px;
+  padding: 5px 15px;
+}
+
 
 .city-box {
   padding: 20px 0;
