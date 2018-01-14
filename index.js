@@ -46,6 +46,9 @@ const init = () => {
   let firstCity = 0;
 
   const mapSelection = document.querySelector('.map-selection');
+  const cityName = document.querySelector('.city-name');
+  const ticketButton = document.querySelector('.btn-ticket');
+
   mapSelection.onchange = () => {
     if (document.getElementById('M1').checked) {
       cities = ERENGEL_CITIES;
@@ -57,19 +60,24 @@ const init = () => {
   };
 
   const changeCity = () => {
-    const cityName = document.querySelector('.city-name');
-
     cityName.innerHTML = cities[firstCity];
     firstCity = (firstCity + 1) % allCities;
   };
 
   const change = () => {
-    next = setInterval(changeCity, 120);
+    next = setInterval(changeCity, 180);
   };
 
-  const cityBox = document.querySelector('.city-box');
-  cityBox.onmouseover = change;
-  cityBox.onmouseout = () => clearInterval(next);
+  ticketButton.onclick = () => {
+    cityName.classList.add('animate');
+    setTimeout(() => {
+      const random = Math.floor(Math.random() * cities.length);
+      clearInterval(next);
+      cityName.innerHTML = cities[random];
+      cityName.classList.remove('animate');
+    }, 2500);
+    change();
+  };
 };
 
 window.addEventListener('DOMContentLoaded', init);
