@@ -69,6 +69,7 @@ const init = () => {
   let cities = ERENGEL_CITIES;
   let allCities = cities.length;
   let firstCity = 0;
+  let spinning = false;
 
   const mapSelection = document.querySelector('.map-selection');
   const cityName = document.querySelector('.city-name');
@@ -94,18 +95,21 @@ const init = () => {
   };
 
   ticketButton.onclick = () => {
-    allCities = cities.length;
+    if (!spinning) {
+      spinning = true;
+      allCities = cities.length;
+      cityName.classList.add('animate');
 
-    cityName.classList.add('animate');
+      setTimeout(() => {
+        const random = Math.floor(Math.random() * cities.length);
+        clearInterval(next);
+        cityName.innerHTML = cities[random];
+        cityName.classList.remove('animate');
+        spinning = false;
+      }, 2500);
 
-    setTimeout(() => {
-      const random = Math.floor(Math.random() * cities.length);
-      clearInterval(next);
-      cityName.innerHTML = cities[random];
-      cityName.classList.remove('animate');
-    }, 2500);
-
-    change();
+      change();
+    }
   };
 };
 
