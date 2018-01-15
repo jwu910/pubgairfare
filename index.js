@@ -90,7 +90,7 @@ const init = () => {
   };
 
   const change = () => {
-    next = setInterval(changeCity, 180);
+    next = setInterval(changeCity, 120);
   };
 
   ticketButton.onclick = () => {
