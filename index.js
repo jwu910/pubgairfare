@@ -94,13 +94,17 @@ const init = () => {
   };
 
   ticketButton.onclick = () => {
+    allCities = cities.length;
+
     cityName.classList.add('animate');
+
     setTimeout(() => {
       const random = Math.floor(Math.random() * cities.length);
       clearInterval(next);
       cityName.innerHTML = cities[random];
       cityName.classList.remove('animate');
     }, 2500);
+
     change();
   };
 };
