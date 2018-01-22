@@ -5,13 +5,19 @@ Animation inspired by Shark @ https://codepen.io/sharkers/full/jbEYgE
 */
 
 html {
-  color: white;
+  color: #fff;
   font-family: 'Montserrat', sans-serif;
   height: 100%;
 }
 
 body {
-  background: #7d7d7d;
+  background: #242628;
+  margin: 10%;
+}
+
+footer {
+  margin: 10% 20%;
+  text-align: center;
 }
 
 h1 {
@@ -39,9 +45,20 @@ p {
 }
 
 .map-selection {
-  text-align: center;
   font-size: 1.5em;
+  text-align: center;
 }
+
+.button {
+  background-color: #E18000;
+  border-radius: 10px;
+  border: none;
+  display: inline;
+  font-size: 1.2rem;
+  margin: 10px;
+  padding: 5px 15px;
+}
+
 
 .city-box {
   padding: 20px 0;
@@ -55,7 +72,7 @@ p {
   transition: all 0.2s ease;
 }
 
-.city-name:hover {
+.animate {
   animation: mov 0.12s infinite;
   color: rgba(255, 255, 255, 0.2);
   text-shadow: 0 4px 4px rgba(255, 255, 255, 0.2),
