@@ -1,42 +1,67 @@
 const ERENGEL_CITIES = [
-  'Georgopol',
-  'Mylta',
-  'Pochinki',
-  'Yasnaya Polyana',
+  'Apartments',
+  'Farm',
+  'Farmlands',
+  'Ferry Pier',
+  'Gatka Trenches',
   'Gatka',
+  'Georgopol',
+  'Hospital',
   'Kameshki',
   'Lipovka',
-  'Mylta Power',
+  'Mansion',
+  'Mylta Power Large',
+  'Mylta Power Small',
+  'Mylta',
   'Novorepnoye',
+  'Pochinki',
   'Primorsk',
+  'Quarry',
+  'Ridge Complex',
   'Rozhok',
+  'Ruins',
+  'School',
   'Severny',
-  'Stalber',
-  'Zharki',
-  'Stalber',
+  'Shelter',
+  'Shooting Range',
   'Sosnovka Island',
   'Sosnovka Military Base',
+  'Stalber',
+  'Stalber',
+  'Swamp Town',
+  'Water Town',
+  'Woodcutter Camp',
+  'Yasnaya Polyana',
+  'Zharki',
 ];
 
 const MIRAMAR_CITIES = [
-  'Los Leones',
-  'El Pozo',
-  'Monte Nuevo',
-  'Valle del Mar',
-  'La Cobreria',
-  'San Martin',
+  'Campo Militar',
   'Chumacera',
-  'Pecado',
-  'Hacienda del Patrón',
-  'Los Leones',
+  'Crater Fields',
+  'Cruz del Valle',
+  'El Azahar',
   'El Pozo',
-  'Monte Nuevo',
-  'Valle del Mar',
-  'La Cobreria',
-  'San Martin',
-  'Chumacera',
-  'Pecado',
+  'Graveyard',
   'Hacienda del Patrón',
+  'Junkyard',
+  'La Cobreria',
+  'Los Higos',
+  'Los Leones',
+  'Minas Generales',
+  'Minas del Sur',
+  'Minas del Valle',
+  'Monte Nuevo',
+  'Pecado',
+  'Power Grid',
+  'Prison',
+  'Puerto Paraiso',
+  'Ruins',
+  'San Martin',
+  'Tierra-Bronca',
+  'Trailer Park',
+  'Valle del Mar',
+  'Water Treatment',
 ];
 
 const init = () => {
@@ -44,8 +69,12 @@ const init = () => {
   let cities = ERENGEL_CITIES;
   let allCities = cities.length;
   let firstCity = 0;
+  let spinning = false;
 
   const mapSelection = document.querySelector('.map-selection');
+  const cityName = document.querySelector('.city-name');
+  const ticketButton = document.querySelector('.btn-ticket');
+
   mapSelection.onchange = () => {
     if (document.getElementById('M1').checked) {
       cities = ERENGEL_CITIES;
@@ -57,8 +86,6 @@ const init = () => {
   };
 
   const changeCity = () => {
-    const cityName = document.querySelector('.city-name');
-
     cityName.innerHTML = cities[firstCity];
     firstCity = (firstCity + 1) % allCities;
   };
@@ -67,9 +94,23 @@ const init = () => {
     next = setInterval(changeCity, 120);
   };
 
-  const cityBox = document.querySelector('.city-box');
-  cityBox.onmouseover = change;
-  cityBox.onmouseout = () => clearInterval(next);
+  ticketButton.onclick = () => {
+    if (!spinning) {
+      spinning = true;
+      allCities = cities.length;
+      cityName.classList.add('animate');
+
+      setTimeout(() => {
+        const random = Math.floor(Math.random() * cities.length);
+        clearInterval(next);
+        cityName.innerHTML = cities[random];
+        cityName.classList.remove('animate');
+        spinning = false;
+      }, 2500);
+
+      change();
+    }
+  };
 };
 
 window.addEventListener('DOMContentLoaded', init);
